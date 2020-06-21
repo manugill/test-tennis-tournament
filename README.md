@@ -4,7 +4,7 @@ This is written using [Deno](https://deno.land), a Node.js-like runtime with bui
 
 ### Editor support
 
-There's a VS Code plugin for Deno to support module loading, typings and other features for it implements. I'd recommend you install it if you'd like to explore the code, otherwise, you'll see error messages in your editor.
+There's a VS Code plugin for Deno to support module loading, typings and other features it implements. I'd recommend you install it if you'd like to explore the code, otherwise, you'll see error messages in your editor.
 
 ## Execution
 
