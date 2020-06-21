@@ -16,7 +16,7 @@ deno run --allow-read src/main.ts full_tournament.txt
 
 The program will then ask the user to enter a query, and also show what queries are possible. The user can enter as many different queries as they like until they press return without writing a query (or write an invalid query).
 
-I believe this diverges from the example input command provided in the problem definition, where it's expecting you to give it a file name and then a list of queries to run which are then printed out sequentially. I've done this on purpose as I feel it's more flexible and easier to use.
+I believe this diverges from the example input command provided in the problem definition, where it's expecting you to give it a file name and then a list of queries to run the results of which are then printed out sequentially. I've done this on purpose as I feel it's more flexible and easier to use.
 
 _Note_: The `--allow-read` flag allows our code to access the file system which is needed to access `full_tournament.txt`.
 
