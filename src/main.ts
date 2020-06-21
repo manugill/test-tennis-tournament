@@ -6,18 +6,20 @@ import extractGames from "./extractGames.ts";
 import extractSets from "./extractSets.ts";
 import extractResult from "./extractResult.ts";
 
+// read file
 const [fileName] = parse(Deno.args)._;
-
 if (typeof fileName !== "string") {
   throw new Error("Invalid file name");
 }
-
 const data = await Deno.readFile(`${import.meta.url}/../${fileName}`);
 const decoder = new TextDecoder("utf-8");
 const text = decoder.decode(data);
+
+// extract matches
 const matches = extractMatches(text);
 const matchNames = Object.keys(matches);
 
+// print out help info with dynamic sample commands
 const QUERY_SCORE_MATCH = "Score Match";
 const QUERY_GAMES_PLAYER = "Games Player";
 const QUERY_SETS_PLAYER = "Sets Player";
@@ -35,10 +37,11 @@ console.info(
   `- To find how many sets a player won & lost, type query: ${QUERY_SETS_PLAYER} ${samplePlayer}`,
 );
 
+// let the user enter queries and print resuls for them
 const ask = new Ask();
 let stopped = false;
 while (!stopped) {
-  console.info("");
+  console.info(""); // just an empty line to make it look a bit nicer
 
   const { query } = await ask.prompt([
     { name: "query", type: "input", message: "Query:" },
@@ -77,7 +80,6 @@ while (!stopped) {
     }
   } else if (query.startsWith(QUERY_SETS_PLAYER)) {
     const player = query.replace(QUERY_SETS_PLAYER, "").trim();
-
     const playerMatches = Object.values(matches).filter((match) =>
       match.players.some((playerName) => playerName === player)
     );
