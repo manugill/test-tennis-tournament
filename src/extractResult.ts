@@ -18,7 +18,7 @@ export default (match: Match) => {
 
   if (setWinners.length < 2) {
     throw new Error(
-      "Not enough sets to determine a match winner, please make sure there are 3 sets",
+      "Not enough sets to determine a match winner, please make sure there are at least 2 sets",
     );
   }
 
