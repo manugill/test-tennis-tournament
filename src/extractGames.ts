@@ -6,6 +6,8 @@ type GameScore = [number, number];
 type Game = {
   winner?: string;
   gameScore: GameScore;
+  // the score log is collected so we can potentially create a table of the game
+  // i.e. track the state changing with each point but it's not used currently
   scoreLog: {
     score: Score;
     player1: number;
@@ -25,8 +27,6 @@ const initialGameAccumulator: GameAccumulator = {
 const initalGame: Game = {
   winner: undefined,
   gameScore: [0, 0],
-  // the score log is collected so we can potentially create a table of the game
-  // i.e. track the state changing with each point but it's not used currently
   scoreLog: [],
 };
 
